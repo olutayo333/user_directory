@@ -1,15 +1,14 @@
 // next.config.ts
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+const nextConfig = {
   images: {
-    domains: ['randomuser.me'], 
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
+    domains: ['randomuser.me'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'randomuser.me',
+      },
+    ],
+    unoptimized: true, //  disables optimization for remote images
   },
 };
 
